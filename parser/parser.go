@@ -2,10 +2,11 @@ package parser
 
 import (
 	"fmt"
+	"strconv"
+
 	"monkey/ast"
 	"monkey/lexer"
 	"monkey/token"
-	"strconv"
 )
 
 const (
@@ -85,7 +86,7 @@ func New(l *lexer.Lexer) *Parser {
 
 func (p *Parser) nextToken() {
 	p.curToken = p.peekToken
-	p.peekToken = p.l.NextToken()
+	p.peekToken = p.l.NextToken() // this NextToken is different from nextToken, this is from the lexer package
 }
 
 func (p *Parser) curTokenIs(t token.TokenType) bool {
@@ -235,6 +236,7 @@ func (p *Parser) curPrecedence() int {
 	return LOWEST
 }
 
+// this doesn't do much, only returns a *ast.Identifier with the current token in the Token field and the literal value of the token in Value. It doesn't advance the tokens, it doesn't call nextToken.
 func (p *Parser) parseIdentifier() ast.Expression {
 	return &ast.Identifier{Token: p.curToken, Value: p.curToken.Literal}
 }
