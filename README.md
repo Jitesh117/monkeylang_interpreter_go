@@ -1,6 +1,4 @@
-# Go Interpreter
-
-Welcome to the Go Interpreter! This project is a simple, hand-crafted interpreter for a programming language inspired by Monkey, written entirely in Go. The interpreter is designed to demonstrate core concepts of language design, parsing, and evaluation.
+# Monkeylang Interpreter
 
 ## Project Structure
 
